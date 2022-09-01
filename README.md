@@ -1,4 +1,4 @@
-## TwitterAPIの利用方法
+# TwitterAPIの利用方法
 
 1. TwitterAPIを利用するためにDeveloper Platformで申請  https://developer.twitter.com/en
 
@@ -7,15 +7,18 @@
 3. 実行はGoogle Colaboratoryで行う https://colab.research.google.com/?hl=ja
 
 
-## 各コードの概要
 
-### twitterAPI.ipynb
+# 各コードの概要
+
+
+## twitterAPI.ipynb
 
 このソースコードは卒業研究2021年のTweet.ipynbをベースとして利用している
 
 Tweepyのライブラリを利用してTwitterAPIを実行している
 
 Tweepyのバージョンは3.6.0を利用
+
 
 ### 変更点
 
@@ -33,6 +36,7 @@ Tweepyのバージョンは3.6.0を利用
     作成されるcsvファイルの先頭行には見出しを追加した (sc_name, datetime, location, text)
 
 
+
 3. APIの実行時間削減のための効率化
 
     以前はAPIの実行制限にひっかならないようにtime.sleep(3)等でスリープさせていたが、ツイート件数が多いキーワードの場合、取得できずにエラーになることがわかった
@@ -42,3 +46,40 @@ Tweepyのバージョンは3.6.0を利用
     また、wait_on_rate_limit_notify=Trueを追加することで制限にかかった際に通知するように設定した
     
     これによりtime.sleep(3)は必要なくなり、timeモジュールを削除した
+
+
+
+
+## tmp.sed
+
+twitterAPI.ipynbで作成したcsvファイルを加工するためのファイルである
+
+取得した位置情報(location)には位置情報がない場合はNone
+
+ある場合は、Place(_api=<tweepy.api.API object at　・・・ attributes={})のように情報が格納される
+
+ここから緯度経度の数値のみを取り出して位置情報として格納することができる
+
+tmp.sedの実行方法はターミナル(コマンドプロンプト)で同じディレクトリに移動して以下(例）を実行する
+
+下記の例はtwitterAPI_08-29.csvファイルの位置情報を編集し,api_08-29-conv.csvファイルとして保存することを表す
+
+    sed -f tmp.sed twitterAPI_08-29.csv > api_08-29-conv.csv
+    
+（注）　位置情報データが海外等の場合正しく保存されないことがあるためその場合は手動でデータを修正する必要がある
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
