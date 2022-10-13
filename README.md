@@ -81,8 +81,25 @@ twitterAPI.ipynbで取得したcsvファイルのツイートデータをML-Ask�
 
 
 
+## app.py
 
+Streamlitフレームワークを利用したWebアプリのプログラム
 
+①環境構築を行う（参考URL venvで環境構築する方法）
+
+https://qiita.com/fiftystorm36/items/b2fd47cf32c7694adc2e
+
+②Activateする
+
+    . venv/bin/activate 
+
+③Streamlitのインストール(初回のみ)
+
+    pip install streamlit
+
+④Webアプリの実行([ファイル名].pyで実行できる)
+
+    streamlit run app.py   
 
 
 
