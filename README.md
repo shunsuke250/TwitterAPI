@@ -66,7 +66,7 @@ tmp.sedの実行方法はターミナル(コマンドプロンプト)で同じ�
 
     sed -f tmp.sed twitterAPI_08-29.csv > api_08-29-conv.csv
     
-（注）　Windowsの場合下記のようにtmp.sed内のバックスラッシュ(\)を円(¥)に変換しなければ動かない可能性がある
+（注）　Windowsの場合下記のようにtmp.sed内のバックスラッシュ(\\)を円(¥)に変換しなければ動かない可能性がある
     
     s/Place.*coordinates=¥[¥[¥[¥([0-9¥.]*¥), ¥([0-9¥.]*¥).*¥],.*{})/¥2_¥1/g
 
@@ -85,19 +85,19 @@ twitterAPI.ipynbで取得したcsvファイルのツイートデータをML-Ask�
 
 Streamlitフレームワークを利用したWebアプリのプログラム
 
-①環境構築を行う（参考URL venvで環境構築する方法）
+#### 1. 環境構築を行う（参考URL venvで環境構築する方法）
 
 https://qiita.com/fiftystorm36/items/b2fd47cf32c7694adc2e
 
-②Activateする
+#### 2. Activateする
 
     . venv/bin/activate 
 
-③Streamlitのインストール(初回のみ)
+#### 3. Streamlitのインストール(初回のみ)
 
     pip install streamlit
 
-④Webアプリの実行([ファイル名].pyで実行できる)
+#### 4. Webアプリの実行([ファイル名].pyで実行できる)
 
     streamlit run app.py   
 
